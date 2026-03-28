@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetSessionBtn = document.getElementById('reset-session');
 
     // State
-    const API_URL = 'http://127.0.0.1:8000/chat';
+    const API_URL = 'https://asuchatbot-git-89934218088.europe-west1.run.app/chat';
     let sessionId = sessionStorage.getItem('asu_chat_session_id') || '';
     let isWaitingForResponse = false;
 
