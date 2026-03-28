@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
 
 root_agent = Agent(
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     name="asu_international_assistant",
     description="An assistant for international students at Arizona State University.",
     instruction=(
