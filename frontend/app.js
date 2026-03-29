@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatMessages = document.getElementById('chat-messages');
     const sendButton = document.getElementById('send-button');
     const typingIndicator = document.getElementById('typing-indicator');
-    const resetSessionBtn = document.getElementById('reset-session');
 
     // State
     const API_URL = 'https://asuchatbot-git-89934218088.europe-west1.run.app/chat';
@@ -16,29 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.disabled = messageInput.value.trim() === '' || isWaitingForResponse;
     });
 
-    // Reset session
-    resetSessionBtn.addEventListener('click', () => {
-        if (confirm('Are you sure you want to clear the conversation and start a new session?')) {
-            sessionStorage.removeItem('asu_chat_session_id');
-            sessionId = '';
-            
-            // Clear all messages except the welcome message
-            const welcomeMsg = document.querySelector('.welcome-message').cloneNode(true);
-            chatMessages.innerHTML = '';
-            chatMessages.appendChild(welcomeMsg);
-            
-            // Add slight animation resetting
-            welcomeMsg.style.animation = 'none';
-            void welcomeMsg.offsetWidth; // trigger reflow
-            welcomeMsg.style.animation = 'message-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-        }
-    });
-
-    function formatTime() {
-        const now = new Date();
-        return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-
     function addMessage(text, isUser = false) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${isUser ? 'user-message' : 'assistant-message'}`;
@@ -47,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentDiv.className = 'message-content';
         
         // Use marked to parse markdown if it's the assistant, otherwise escape HTML
-        if (!isUser) {
+        if (!isUser && typeof marked !== 'undefined') {
             contentDiv.innerHTML = marked.parse(text);
         } else {
             const p = document.createElement('p');
@@ -55,12 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDiv.appendChild(p);
         }
 
-        const timeSpan = document.createElement('span');
-        timeSpan.className = 'timestamp';
-        timeSpan.textContent = formatTime();
-
         messageDiv.appendChild(contentDiv);
-        messageDiv.appendChild(timeSpan);
         
         chatMessages.appendChild(messageDiv);
         scrollToBottom();
@@ -135,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // 6. Cleanup state
             hideTypingIndicator();
             isWaitingForResponse = false;
-            // Re-evaluate button state in case user typed while waiting (though shouldn't happen due to overlay/disabled state)
             sendButton.disabled = messageInput.value.trim() === '';
             messageInput.focus();
         }
