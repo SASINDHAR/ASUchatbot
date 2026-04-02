@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASU Chat Assistant</title>
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Your CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 
@@ -17,37 +14,28 @@
 <div class="app-container">
     <main class="chat-interface">
 
-        <!-- ✅ CLEAN HEADER -->
-        <header class="chat-header">
-            <div>
-                <h1>🎓 ASU Assistant</h1>
-                <p class="subtitle">
-                    Admissions & Student Support · Albstadt-Sigmaringen University
-                </p>
-            </div>
-        </header>
+        <!-- ❌ HEADER REMOVED -->
 
         <!-- ✅ CHAT AREA -->
         <div class="chat-messages" id="chat-messages">
 
-            <!-- ✅ CLEAN WELCOME MESSAGE -->
             <div class="message assistant-message">
                 <div class="message-content">
-                    <p>👋 Welcome to the ASU International Student Assistant.</p>
+                    <p>👋 Welcome! I’m your ASU Assistant.</p>
 
                     <p>
                         I can help you with:
-                        <br>• 🎓 Admission requirements  
-                        <br>• 📄 Application documents  
-                        <br>• 📅 Deadlines & intakes  
-                        <br>• 🛂 Visa guidance  
+                        <br>• 🎓 Admissions  
+                        <br>• 📄 Documents  
+                        <br>• 📅 Deadlines  
+                        <br>• 🛂 Visa  
                     </p>
 
                     <p>
-                        To get started, please tell me:
-                        <br>🌍 Your country  
-                        <br>🎓 Degree (Bachelor / Master)  
-                        <br>📅 Intake (Summer / Winter)
+                        Tell me:
+                        <br>🌍 Country  
+                        <br>🎓 Degree  
+                        <br>📅 Intake
                     </p>
                 </div>
             </div>
@@ -61,12 +49,12 @@
             <span class="dot"></span>
         </div>
 
-        <!-- ✅ INPUT -->
+        <!-- INPUT -->
         <form class="chat-input-area" id="chat-form">
             <input 
                 type="text" 
                 id="message-input" 
-                placeholder="Ask about admissions, deadlines, documents, or visa..."
+                placeholder="Ask about admissions, visa, deadlines..."
                 autocomplete="off"
             >
             <button type="submit" class="send-button" id="send-button" disabled>
