@@ -5,86 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASU Chat Assistant</title>
 
-    <!-- Google Font -->
+    <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Your CSS -->
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <div class="app-container">
-        <main class="chat-interface">
 
-            <!-- ✅ PREMIUM HEADER -->
-            <header class="chat-header">
-                <div class="header-content">
-                    <div>
-                        <h1>🎓 ASU International Assistant</h1>
-                        <p class="subtitle">
-                            Albstadt-Sigmaringen University · Admissions & Student Support
-                        </p>
-                    </div>
+<div class="app-container">
+    <main class="chat-interface">
+
+        <!-- ✅ CLEAN HEADER -->
+        <header class="chat-header">
+            <div>
+                <h1>🎓 ASU Assistant</h1>
+                <p class="subtitle">
+                    Admissions & Student Support · Albstadt-Sigmaringen University
+                </p>
+            </div>
+        </header>
+
+        <!-- ✅ CHAT AREA -->
+        <div class="chat-messages" id="chat-messages">
+
+            <!-- ✅ CLEAN WELCOME MESSAGE -->
+            <div class="message assistant-message">
+                <div class="message-content">
+                    <p>👋 Welcome to the ASU International Student Assistant.</p>
+
+                    <p>
+                        I can help you with:
+                        <br>• 🎓 Admission requirements  
+                        <br>• 📄 Application documents  
+                        <br>• 📅 Deadlines & intakes  
+                        <br>• 🛂 Visa guidance  
+                    </p>
+
+                    <p>
+                        To get started, please tell me:
+                        <br>🌍 Your country  
+                        <br>🎓 Degree (Bachelor / Master)  
+                        <br>📅 Intake (Summer / Winter)
+                    </p>
                 </div>
-            </header>
-
-            <!-- ✅ CHAT MESSAGES -->
-            <div class="chat-messages" id="chat-messages">
-
-                <!-- ✅ IMPROVED WELCOME MESSAGE -->
-                <div class="message assistant-message welcome-message">
-                    <div class="message-content">
-                        <p>
-                            👋 Welcome! I’m your ASU International Student Assistant.
-                            I can help you with admissions, applications, deadlines, and visa guidance.
-                        </p>
-
-                        <p>
-                            To get started, please share:
-                            <br>• 🌍 Your country of origin  
-                            <br>• 🎓 Degree level (Bachelor / Master)  
-                            <br>• 📅 Preferred intake (Summer / Winter)
-                        </p>
-
-                        <p>
-                            You can also ask questions like:
-                            <br>👉 "What are the admission requirements?"
-                            <br>👉 "What documents are needed?"
-                            <br>👉 "How do I apply for a visa?"
-                        </p>
-                    </div>
-                </div>
-
             </div>
 
-            <!-- ✅ TYPING INDICATOR -->
-            <div class="typing-indicator hidden" id="typing-indicator">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
+        </div>
 
-            <!-- ✅ INPUT AREA -->
-            <form class="chat-input-area" id="chat-form">
-                <input 
-                    type="text" 
-                    id="message-input" 
-                    placeholder="Ask about admissions, deadlines, documents, or visa process..."
-                    autocomplete="off"
-                    aria-label="Message input"
-                >
-                <button type="submit" class="send-button" id="send-button" disabled>
-                    Send
-                </button>
-            </form>
+        <!-- Typing -->
+        <div class="typing-indicator hidden" id="typing-indicator">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
 
-        </main>
-    </div>
+        <!-- ✅ INPUT -->
+        <form class="chat-input-area" id="chat-form">
+            <input 
+                type="text" 
+                id="message-input" 
+                placeholder="Ask about admissions, deadlines, documents, or visa..."
+                autocomplete="off"
+            >
+            <button type="submit" class="send-button" id="send-button" disabled>
+                Send
+            </button>
+        </form>
 
-    <!-- Markdown support -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    </main>
+</div>
 
-    <!-- Your JS -->
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
