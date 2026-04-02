@@ -1,17 +1,17 @@
 :root {
     --bg-primary: #ffffff; 
     --bg-chat: #ffffff;
-    --header-bg: #2b3a82;
+    --header-bg: #1e3a8a; /* darker premium blue */
     --text-primary: #374151;
     --text-header: #ffffff;
     --text-subtitle: #e5e7eb;
     --border-color: #eaecf0;
     --bot-bg: #fdfdfd;
-    --bot-border: #f0f0f0;
-    --input-area-bg: #f8f9fa;
-    --send-btn-bg: #8ba2cb;
-    --send-btn-hover: #7b94bf;
-    --chat-max-width: 800px;
+    --bot-border: #e5e7eb;
+    --input-area-bg: #f9fafb;
+    --send-btn-bg: #1e40af;
+    --send-btn-hover: #1d4ed8;
+    --chat-max-width: 700px;
 }
 
 * {
@@ -21,8 +21,8 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-primary);
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7fb;
     color: var(--text-primary);
     height: 100vh;
     display: flex;
@@ -33,193 +33,130 @@ body {
 .app-container {
     width: 100%;
     height: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
+    padding: 20px;
 }
 
 .chat-interface {
     width: 100%;
     max-width: var(--chat-max-width);
-    height: 90vh; /* roughly taking up most */
+    height: 90vh;
+    margin: auto;
     background: var(--bg-chat);
-    border: 1px solid #d1d5db;
-    border-radius: 8px; /* Slightly less rounded than before */
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
 
+/* HEADER */
 .chat-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 24px 32px;
+    padding: 18px 24px;
     background: var(--header-bg);
     color: var(--text-header);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
 }
 
 .chat-header h1 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .subtitle {
-    font-size: 0.95rem;
+    font-size: 13px;
     color: var(--text-subtitle);
-    font-weight: 400;
 }
 
+/* CHAT */
 .chat-messages {
     flex: 1;
-    padding: 32px;
+    padding: 24px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    background-color: var(--bg-chat);
+    gap: 16px;
 }
 
-.chat-messages::-webkit-scrollbar {
-    width: 6px;
-}
-.chat-messages::-webkit-scrollbar-thumb {
-    background: #e5e7eb;
-    border-radius: 4px;
-}
-
-.message {
-    display: flex;
-    flex-direction: column;
-    max-width: 85%;
-}
-
-.message-content {
-    line-height: 1.6;
-    font-size: 1.05rem;
-    word-break: break-word;
-}
-
-.assistant-message {
-    align-self: flex-start;
-}
-
+/* BOT MESSAGE */
 .assistant-message .message-content {
-    background: #fafafa;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    padding: 20px 24px;
-    color: #4b5563;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-/* User Message */
+/* USER MESSAGE */
 .user-message {
     align-self: flex-end;
 }
 
 .user-message .message-content {
-    background: #eff6ff; 
-    border: 1px solid #bfdbfe;
-    border-radius: 8px;
-    padding: 16px 20px;
+    background: #e0edff;
+    border-radius: 10px;
+    padding: 12px 16px;
     color: #1e3a8a;
 }
 
-.typing-indicator {
-    align-self: flex-start;
-    background: #fafafa;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
-    padding: 16px 24px;
-    display: flex;
-    gap: 6px;
-    margin-bottom: 20px;
-    margin-left: 32px;
-}
-
-.typing-indicator.hidden {
-    display: none;
-}
-
-.dot {
-    width: 6px;
-    height: 6px;
-    background-color: #9ca3af;
-    border-radius: 50%;
-    animation: typing 1.4s infinite ease-in-out both;
-}
-
-.dot:nth-child(1) { animation-delay: -0.32s; }
-.dot:nth-child(2) { animation-delay: -0.16s; }
-
-@keyframes typing {
-    0%, 80%, 100% { transform: scale(0); opacity: 0.5; }
-    40% { transform: scale(1); opacity: 1; }
-}
-
+/* INPUT */
 .chat-input-area {
-    padding: 20px 32px;
+    padding: 16px;
     display: flex;
-    gap: 16px;
-    background: #f9fafb;
+    gap: 10px;
+    background: var(--input-area-bg);
     border-top: 1px solid var(--border-color);
 }
 
 #message-input {
     flex: 1;
-    background: #ffffff;
-    border: 1px solid #d1d5db; /* Grey border for input */
-    border-radius: 6px;
-    padding: 16px;
-    font-family: inherit;
-    font-size: 1rem;
-    color: var(--text-primary);
-    outline: none;
-    transition: all 0.2s;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
 }
 
 #message-input:focus {
-    border-color: #9ca3af;
-    box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.2);
+    border-color: #1e40af;
+    box-shadow: 0 0 0 2px rgba(30,64,175,0.1);
 }
 
-#message-input::placeholder {
-    color: #9ca3af;
-}
-
+/* BUTTON */
 .send-button {
     background: var(--send-btn-bg);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1rem;
+    color: white;
     border: none;
     border-radius: 8px;
-    padding: 0 24px;
-    min-width: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0 18px;
+    font-weight: 500;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-.send-button:not(:disabled):hover {
+.send-button:hover {
     background: var(--send-btn-hover);
 }
 
 .send-button:disabled {
     background: #e5e7eb;
     color: #9ca3af;
-    cursor: not-allowed;
 }
 
-.message-content p {
-    margin-bottom: 0px; 
+/* TYPING */
+.typing-indicator {
+    padding: 10px 24px;
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #9ca3af;
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+@keyframes typing {
+    0%, 80%, 100% { opacity: 0.3; }
+    40% { opacity: 1; }
 }
