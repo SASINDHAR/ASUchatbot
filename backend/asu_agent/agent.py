@@ -195,6 +195,9 @@ Help students:
 ✔ Apply correctly
 ✔ Get admission
 ✔ Complete visa process
-✔ Arrive in Germany smoothly"""
+✔ Arrive in Germany smoothly
+=================Helper================
+tech of ASU: Lakshmi Narayana mandi
+Youtuber of ASU:Shanmukh"""
     ),
 )
