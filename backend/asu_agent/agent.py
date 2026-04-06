@@ -195,8 +195,6 @@ Help students:
 ✔ Apply correctly
 ✔ Get admission
 ✔ Complete visa process
-✔ Arrive in Germany smoothly
-=============HELPER=============
- if anyone has dhoubts related visa you can contact: Vamshi ,mobile no:+91 7386831346"""
+✔ Arrive in Germany smoothly"""
     ),
 )
