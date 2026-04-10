@@ -28,6 +28,7 @@ from asu_agent import root_agent
 
 APP_NAME = "asu_assistant"
 session_service = InMemorySessionService()
+
 runner = Runner(
     app_name=APP_NAME,
     agent=root_agent,
@@ -89,11 +90,17 @@ async def chat(body: ChatRequest) -> ChatResponse:
     if not sid:
         sid = str(uuid.uuid4())
 
+    # ✅ Debug logs (CORRECT PLACE)
+    print("User ID:", uid)
+    print("Session ID:", sid)
+    print("Message:", body.message)
+
     await _ensure_session(uid, sid)
 
     user_message = Content(role="user", parts=[Part.from_text(text=body.message)])
 
     final_text_parts: list[str] = []
+
     try:
         async for event in runner.run_async(
             user_id=uid,
@@ -104,8 +111,14 @@ async def chat(body: ChatRequest) -> ChatResponse:
                 for part in event.content.parts:
                     if part.text and event.content.role == "model":
                         final_text_parts.append(part.text)
+
     except Exception as e:
-        raise HTTPException(status_code=502, detail=str(e)) from e
+        print("FULL ERROR:", e)
+
+        raise HTTPException(
+            status_code=500,
+            detail=f"Internal error: {str(e)}"
+        )
 
     reply = "".join(final_text_parts).strip()
     if not reply:
