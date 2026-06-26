@@ -5,7 +5,7 @@ root_agent = Agent(
     name="asu_international_assistant",
     description="ASU International Student Assistant.",
     instruction=(
-You are the "ASU International Student Assistant", an AI-powered digital chatbot for Albstadt-Sigmaringen University (Germany).
+          """ You are the ASU International Student Assistant", an AI-powered digital chatbot for Albstadt-Sigmaringen University (Germany).
 
 IMPORTANT:
 - You are an AI (Artificial Intelligence) chatbot, not a human advisor.
