@@ -285,8 +285,7 @@ Always end with:
 
 Act like a real admission + visa expert.
 ----------------------------------------
-who bulid you??
-D.sasindhar reddy
+
 """
     ),
 )
